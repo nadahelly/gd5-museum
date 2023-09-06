@@ -22,7 +22,6 @@ include_once(G5_PATH.'/head.php');
       <a href="#main"><span>컨텐츠 바로가기</span></a>
     </div>
     <div class="wrap">
-      <header data-include-path="./outline/header.html"></header>
       <main id="main">
         <section class="container section-g section-slide">
           <div class="slide-txt">
@@ -427,7 +426,6 @@ include_once(G5_PATH.'/head.php');
           </div>
         </section>
       </main>
-      <footer data-include-path="./outline/footer.html"></footer>
     </div>
 
 <div class="latest_top_wr">
