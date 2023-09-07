@@ -1,15 +1,12 @@
 <?php
 // 이 파일은 새로운 파일 생성시 반드시 포함되어야 함
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
-
 // 테마 head.sub.php 파일
 if(!defined('G5_IS_ADMIN') && defined('G5_THEME_PATH') && is_file(G5_THEME_PATH.'/head.sub.php')) {
     require_once(G5_THEME_PATH.'/head.sub.php');
     return;
 }
-
 $g5_debug['php']['begin_time'] = $begin_time = get_microtime();
-
 if (!isset($g5['title'])) {
     $g5['title'] = $config['cf_title'];
     $g5_head_title = $g5['title'];
@@ -18,10 +15,8 @@ else {
     // 상태바에 표시될 제목
     $g5_head_title = implode(' | ', array_filter(array($g5['title'], $config['cf_title'])));
 }
-
 $g5['title'] = strip_tags($g5['title']);
 $g5_head_title = strip_tags($g5_head_title);
-
 // 현재 접속자
 // 게시판 제목에 ' 포함되면 오류 발생
 $g5['lo_location'] = addslashes($g5['title']);
@@ -29,7 +24,6 @@ if (!$g5['lo_location'])
     $g5['lo_location'] = addslashes(clean_xss_tags($_SERVER['REQUEST_URI']));
 $g5['lo_url'] = addslashes(clean_xss_tags($_SERVER['REQUEST_URI']));
 if (strstr($g5['lo_url'], '/'.G5_ADMIN_DIR.'/') || $is_admin == 'super') $g5['lo_url'] = '';
-
 /*
 // 만료된 페이지로 사용하시는 경우
 header("Cache-Control: no-cache"); // HTTP/1.1
@@ -50,7 +44,6 @@ if (G5_IS_MOBILE) {
     echo '<meta http-equiv="imagetoolbar" content="no">'.PHP_EOL;
     echo '<meta http-equiv="X-UA-Compatible" content="IE=Edge">'.PHP_EOL;
 }
-
 if($config['cf_add_meta'])
     echo $config['cf_add_meta'].PHP_EOL;
 ?>
@@ -102,17 +95,17 @@ if (defined('_SHOP_')) {
 } else {
     add_javascript('<script src="'.G5_JS_URL.'/jquery.menu.js?ver='.G5_JS_VER.'"></script>', 0);
 }
+add_javascript('<script src="'.G5_JS_URL.'/common.js?ver='.G5_JS_VER.'"></script>', 0);
 add_javascript('<script src="'.G5_JS_URL.'/wrest.js?ver='.G5_JS_VER.'"></script>', 0);
 add_javascript('<script src="'.G5_JS_URL.'/placeholders.min.js"></script>', 0);
 add_javascript('<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>', 0);
 add_javascript('<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>', 0);
-add_javascript('<script src="/gnuboard5/dist/js/comm.js"></script>', 0);
+add_javascript('<script src="/gnuboard/dist/js/comm.js"></script>', 0);
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/font-awesome/css/font-awesome.min.css">', 0);
 add_stylesheet('<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">', 0);
 add_stylesheet('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css">', 0);
 add_stylesheet('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">', 0);
 add_stylesheet('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">', 0);
-
 if(G5_IS_MOBILE) {
     add_javascript('<script src="'.G5_JS_URL.'/modernizr.custom.70111.js"></script>', 1); // overflow scroll 감지
 }
@@ -127,7 +120,6 @@ if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력�
     if ($is_admin == 'super') $sr_admin_msg = "최고관리자 ";
     else if ($is_admin == 'group') $sr_admin_msg = "그룹관리자 ";
     else if ($is_admin == 'board') $sr_admin_msg = "게시판관리자 ";
-
     echo '<div id="hd_login_msg">'.$sr_admin_msg.get_text($member['mb_nick']).'님 로그인 중 ';
     echo '<a href="'.G5_BBS_URL.'/logout.php">로그아웃</a></div>';
 }
