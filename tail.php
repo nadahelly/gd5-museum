@@ -11,7 +11,7 @@ if (G5_IS_MOBILE) {
     return;
 }
 ?>
-
+</div>
 <!-- } 콘텐츠 끝 -->
 
 <hr>

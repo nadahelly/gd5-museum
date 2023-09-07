@@ -24,7 +24,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 
 <div id="skip_to_container">
     <a href="#gnb">주메뉴 바로가기</a>
-    <a href="#container">본문 바로가기</a>
+    <a href="#main">본문 바로가기</a>
 </div>
 <!-- 상단 시작 { -->
 <div id="hd">
@@ -64,7 +64,7 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
             </div>
                         
             <nav id="gnb">
-                <h2>메인메뉴</h2>
+                <h2>주메뉴</h2>
                 <div class="gnb_wrap">
                     <ul id="gnb_1dul">
                         <?php
@@ -224,5 +224,6 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 <hr>
 
 <!-- 콘텐츠 시작 { -->
-<!-- div 3개 삭제 -->
+    <!-- div 3개 삭제 -->
+    <div id="main">
 <?php if (!defined("_INDEX_")) { ?><h2 id="container_title"><span title="<?php echo get_text($g5['title']); ?>"><?php echo get_head_title($g5['title']); ?></span></h2><?php }
